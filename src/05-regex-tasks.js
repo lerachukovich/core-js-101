@@ -54,7 +54,7 @@ function getRegexForGuid() {
  *
  */
 function getRegexForPitSpot() {
-  throw new Error('Not implemented');
+  return new RegExp('.*[si].*');
 }
 
 
@@ -78,8 +78,9 @@ function getRegexForPitSpot() {
  *   'PASSW0RD'.match(validator)  => false
  *   'Pa55'.match(validator) => false
  */
-function getPasswordValidator(/* minLength */) {
-  throw new Error('Not implemented');
+function getPasswordValidator(minLength) {
+  const expression = `^(?=\\w*[A-Z])(?=\\w*[a-z])(?=\\w*\\d)[a-zA-Z0-9]{${minLength}}`;
+  return new RegExp(expression);
 }
 
 
